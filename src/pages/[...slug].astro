@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import addons from "../add-ons.ts";
+import { TbDownload } from "solid-icons/tb";
+import { VsGithub } from "solid-icons/vs";
+
+export async function getStaticPaths() {
+  return addons.map((addon) => ({
+    params: { slug: addon.id },
+    props: { addon },
+  }));
+}
+
+const { slug } = Astro.params;
+const { addon } = Astro.props;
+
+const mcpedl_page_req = await fetch(
+  "https://api.mcpedl.com/api/route/slug/" + addon.mcpedl_slug
+);
+const mcpedl_page = await mcpedl_page_req.json();
+
+// const thumbnail = mcpedl_page.data.thumbnails.large
+const thumbnail =
+  "https://api.mcpedl.com/storage/submissions/202243/images/graves_2.png";
+---
+
+<Layout title="Addon">
+  <div class="py-2 mx-2">
+    <div class="flex border-b mb-4">
+      <div class="mb-3">
+        <h2 class="font-extrabold text-4xl">{addon.title}</h2>
+        <a href="https://hatchibombotar.com" class="my-1 hover:underline">By Hatchibombotar</a>
+      </div>
+      <a href="https://hatchibombotar.com" class="ml-auto mr-0">
+        <img
+          class="h-10 inline mr-2 mt-1"
+          src="https://hatchibombotar.com/assets/logo_small.png"
+        />
+      </a>
+    </div>
+
+    <div class=" flex flex-col sm:flex-row gap-2 flex-wrap">
+      <a
+        href={addon.download_url}
+        class="bg-blue-500 px-2 py-3 sm:py-1 rounded text-white text-xl sm:text-lg flex items-center gap-3 border-2 border-transparent hover:border-black cursor-pointer"
+      >
+        <TbDownload />
+        Download
+      </a>
+      <a
+        href={"https://mcpedl.com/" + addon.mcpedl_slug}
+        class="bg-[#10bb3b] px-2 py-3 sm:py-1 rounded text-white text-xl sm:text-lg flex items-center gap-3 border-2 border-transparent hover:border-black cursor-pointer"
+      >
+        <img alt="mcpedl logo" class="h-8" src="/mcpedl_transparent.png" />
+        MCPEDL
+      </a>
+      <a
+        href={addon.github_url}
+        class="bg-black px-2 py-3 sm:py-1 rounded text-white text-xl sm:text-lg flex items-center gap-3 border-2 border-transparent hover:border-black cursor-pointer"
+      >
+        <VsGithub />
+        Github
+      </a>
+    </div>
+
+    <!-- <img class="my-4 h-24 block" src={thumbnail} /> -->
+
+    <!-- <a href="#" class="border-4 mt-8 flex flex-col items-center max-w-72 text-sm rounded-lg border-purple-300 hover:border-purple-400 bg-neutral-200 p-2 mx-auto sm:mx-0">
+        Host premium servers with
+        <img class="w-48 h-auto" src="advert" alt="advert logo"/>
+        <p>15% off purchases with code <span class="font-bold">HATCHI</span></p>
+    </a> -->
+  </div>
+</Layout>
