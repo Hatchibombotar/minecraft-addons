@@ -83,7 +83,7 @@ const MCPEDL_logo = config.base + "mcpedl_transparent.png";
   (document.querySelector("#download") as HTMLAnchorElement).addEventListener(
     "click",
     async () => {
-      await fetch("https://fast-alpaca-90.deno.dev/", {
+      await fetch("https://fast-alpaca-90.deno.dev/api/trigger_event", {
         method: "POST",
         body: JSON.stringify({
           property: "add-ons",
@@ -98,7 +98,7 @@ const MCPEDL_logo = config.base + "mcpedl_transparent.png";
     .split("/")
     .filter((x) => x != "")
     .at(-1);
-  await fetch("https://fast-alpaca-90.deno.dev/", {
+  await fetch("https://fast-alpaca-90.deno.dev/api/trigger_event", {
     method: "POST",
     body: JSON.stringify({
       property: "add-ons",
