@@ -1,3 +1,3 @@
 # Minecraft Add-Ons
 
-Individual pages for my minecraft add-ons
+Individual pages for my minecraft add-ons.
