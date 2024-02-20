@@ -7,4 +7,5 @@ import solidJs from "@astrojs/solid-js";
 export default defineConfig({
   integrations: [tailwind(), solidJs()],
   site: 'https://hatchibombotar.com/',
+  base: "/minecraft-addons/"
 });
