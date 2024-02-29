@@ -5,5 +5,12 @@ export default [
         mcpedl_slug: "graves-addon",
         github_url: "https://github.com/Hatchibombotar/graves-addon/",
         download_url: "https://github.com/Hatchibombotar/graves-addon/releases"
+    },
+    {
+        id: "bundlepacks-addon",
+        title: "Bundlepacks Add-On",
+        mcpedl_slug: "bundlepacks",
+        github_url: "https://github.com/Hatchibombotar/bundlepacks-addon/",
+        download_url: "https://github.com/Hatchibombotar/bundlepacks-addon/releases"
     }
 ]
