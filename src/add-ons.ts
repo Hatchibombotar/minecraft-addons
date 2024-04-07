@@ -19,5 +19,12 @@ export default [
         mcpedl_slug: "fake-blocks-addon-1",
         github_url: "https://github.com/Hatchibombotar/fake-blocks-addon/",
         download_url: "https://github.com/Hatchibombotar/fake-blocks-addon/releases"
+    },
+    {
+        id: "lava-sponges-addon",
+        title: "Lava Sponges Add-On",
+        mcpedl_slug: "lava-sponges-addon",
+        github_url: "https://github.com/Hatchibombotar/lava-sponges-addon/",
+        download_url: "https://github.com/Hatchibombotar/lava-sponges-addon/releases"
     }
 ]
